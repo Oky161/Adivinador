@@ -1,19 +1,20 @@
 import random
-print("Pensa un numero entre 1 y 20")
-print("")
-temp = input("Tu numero es mayor que 10? (Y/N)")
-if temp == "Y":
-	temp = input("Tu numero es mayor que 15? (Y/N)")
-	if temp == ("Y"):
-		print("Tu numero es: "+str(random.randint(15,20)))
+
+N1, N2 = 1, 50
+r = [N1, N2]
+intentos = 4
+
+print(f"Pensa un numero entre {N1} y {N2} \n")
+
+
+for _ in range(intentos):
+	temp = input(f"Tu numero es mayor o igual a {int((r[0]+r[1])/2)}(Y/N)")
+	if temp == "Y":
+		r = [int((r[0]+r[1])/2), int(r[1])]
 	else:
-		print("Tu numero es: "+str(random.randint(10,15)))
+		r = [int(r[0]), int((r[0]+r[1])/2)]
+
+if input(f"Tu numero es {random.randint(r[0], r[1])}? (Y/N)") == "Y":
+	print("ggez")
 else:
-	temp = input("Tu numero es mayor que 5? (Y/N)")
-	if temp == ("Y"):
-		print("Tu numero es: "+str(random.randint(5,10)))
-	else:
-		print("Tu numero es: "+str(random.randint(1,5)))
-print("(La empresa no se hace cargo si no sale tu numero)")
-
-
+	print("rip...")
